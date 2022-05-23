@@ -1,14 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import img from '../../images/background img/spare-parts-car.jpg'
 
 const Banner = () => {
+  const navigate=useNavigate('')
+  const handleProducts=()=>{
+    navigate('/parts')
+  }
     return (
       <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img src="https://api.lorem.space/image/movie?w=260&h=400" className="max-w-sm rounded-lg shadow-2xl" />
+        <img src={img} className="max-w-sm rounded-lg shadow-2xl" alt=''/>
         <div>
-          <h1 className="text-5xl font-bold">Box Office News!</h1>
-          <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-          <button className="btn btn-primary">Get Started</button>
+          <h1 className="text-5xl font-bold">Our Business<br/> our Commitment!!</h1>
+          <p className="py-6">We are provide the 100% orginal product..We think customer commitment is very importent for our business. Our busness polisy our client. Our happy client our compannis happyness</p>
+          <button onClick={handleProducts} className="btn btn-primary">Our Products</button>
         </div>
       </div>
     </div>

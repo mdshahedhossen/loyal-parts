@@ -1,0 +1,63 @@
+[
+    {
+        "_id": 1,
+        "name": "Engine Whell",
+        "price": "200000",
+        "description": "Orginal Toyta parts..It can be use any car..",
+        "minimumOrder": 5,
+        "quantity": 70,
+        "supplier" : "Car House",
+        "img": "https://i.ibb.co/SXVQrYd/Engine-Whell.png"
+    },
+    {
+        "_id": 2,
+        "name": "Whell Parts",
+        "price": "20000",
+        "description": "Honda whell parts items..orginal Honda parts",
+        "minimumOrder": 20,
+        "quantity": 1000,
+        "supplier" : "Honda Official BD Branch",
+        "img": "https://i.ibb.co/pXX6G63/whell-parts.png"
+    },
+    {
+        "_id": 3,
+        "name": "Automobile Engine",
+        "price": "500000",
+        "description": "100% Orginal toytal band new automobile engine",
+        "minimumOrder": 2,
+        "quantity": 10,
+        "supplier" : "Toyta BD Branch",
+        "img": "https://i.ibb.co/zVV5VZ4/automobile-engine.jpg"
+    },
+    {
+        "_id": 4,
+        "name": "RC-Font-Whell",
+        "price": "2000",
+        "description": "RC font whell for 2020 to update Toyta model",
+        "minimumOrder": 70,
+        "quantity": 220,
+        "supplier" : "Car house",
+        "img": "https://i.ibb.co/YZ9fTMW/RC-font-whell.jpg"
+    },
+    {
+        "_id": 5,
+        "name": "Suspention-parts",
+        "price": "20000",
+        "description": "Honda suspention parts..only for Honda band car",
+        "minimumOrder": 20,
+        "quantity": 120,
+        "supplier" : "Car BD",
+        "img": "https://i.ibb.co/2YR2qXh/Suspention-parts.png"
+    },
+    {
+        "_id": 6,
+        "name": "BMW Engine Whell",
+        "price": "10000",
+        "description": "Orginal BMW engine whell..this is a only useable for BMW car",
+        "minimumOrder": 10,
+        "quantity": 100,
+        "supplier" : "Car house",
+        "img": "https://i.ibb.co/Fm7vYbk/Automotive-Engine.png"
+    }
+    
+]

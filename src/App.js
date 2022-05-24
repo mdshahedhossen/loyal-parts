@@ -5,6 +5,8 @@ import BusinessSummary from "./pages/Home/BusinessSummary";
 import Home from "./pages/Home/Home";
 import Parts from "./pages/Home/Parts";
 import Reviews from "./pages/Home/Reviews";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Login/Signup";
 import Navbar from "./pages/Shared/Navbar";
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route path="/parts" element={<Parts></Parts>}></Route>
         <Route path="/business" element={<BusinessSummary></BusinessSummary>}></Route>
         <Route path="/review" element={<Reviews></Reviews>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<Signup></Signup>}></Route>
       </Routes>
     </div>
   );

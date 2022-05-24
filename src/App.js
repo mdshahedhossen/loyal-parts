@@ -8,6 +8,9 @@ import Reviews from "./pages/Home/Reviews";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Login/Signup";
 import Navbar from "./pages/Shared/Navbar";
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import Orders from "./pages/Orders";
 
 function App() {
   return (
@@ -21,7 +24,9 @@ function App() {
         <Route path="/review" element={<Reviews></Reviews>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route path="/parts/:id" element={<Orders></Orders>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

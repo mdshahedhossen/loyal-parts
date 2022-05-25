@@ -7,14 +7,30 @@ const Orders = () => {
     const {id}=useParams();
     const [user]=useAuthState(auth)
     const [partsDetails, setPartsDetails] = useState({});
-    const [orderQuantity,setOrderQuantity]=useState(null)
-    const {_id,img,name,description,minimumOrder,quantity,price}=partsDetails
+    // const [orderQuantity,setOrderQuantity]=useState(null)
+    const {_id,img,name,description,minimumOrder,quantity,price,supplier}=partsDetails
     useEffect(()=>{
         const url=`http://localhost:5000/parts/${id}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setPartsDetails(data))
     },[id])
+
+    const handleOrder=e=>{
+        e.preventDefault()
+        const address = e.target.address.value;
+        const phone = e.target.phone.value;
+        const order = {
+            userEmail: user.email,
+            productName: name,
+            minimumOrder: minimumOrder,
+            price: price,
+            supplier:supplier,
+            address: address,
+            phone: phone,
+            img: img
+        }
+    }
 
     return (
         <section>
@@ -28,6 +44,7 @@ const Orders = () => {
     <h2 className="card-title text-yellow-600">{name}</h2>
     <p>{description}</p>
     <div className='bg-slate-300 p-3 rounded-xl'>
+    <h3>Supplier: <span className='font-bold'>{supplier}</span></h3>
     <h3>Minimum Order: <span className='font-bold'>{minimumOrder}</span></h3>
     <h3>Quantity: <span className='font-bold'>{quantity}</span></h3>
     <h3>Price: <span className='font-bold'>{price}</span>৳/- per unit</h3>
@@ -39,15 +56,15 @@ const Orders = () => {
   <div className="divider lg:divider-horizontal">OR</div> 
   <div className="grid flex-grow card rounded-box place-items-center">
       
-      <form className='flex flex-col'>
+      <form onSubmit={handleOrder} className='flex flex-col'>
       <h2 className='text-center font-bold text-2xl mb-12'>Purchase Now</h2>
-      <input  type="text"  name='name' placeholder="Name" className="mb-4  input input-bordered w-full max-w-xs" value={user?.displayName ||''} readOnly/>
-        <input  type="email"  name='emial' placeholder="Email" className="mb-4  input input-bordered w-full max-w-xs" value={user?.email ||''} readOnly />
-        <input  type="text"  name='address' placeholder="Your Address" className=" mb-4 input input-bordered w-full max-w-xs" />
-        <input  type="number"  name='phone' placeholder="Phone" className=" mb-4 input input-bordered w-full max-w-xs" />
-        <label  className='text-[12px] font-bold mb-2'>Minimum Order</label>
+      <input type="text"  name='name' placeholder="Name" className="mb-4  input input-bordered w-full max-w-xs" value={user?.displayName ||''} readOnly/>
+        <input type="email"  name='emial' placeholder="Email" className="mb-4  input input-bordered w-full max-w-xs" value={user?.email ||''} readOnly />
+        <input type="text"  name='address' placeholder="Your Address" className=" mb-4 input input-bordered w-full max-w-xs" />
+        <input type="number"  name='phone' placeholder="Phone" className=" mb-4 input input-bordered w-full max-w-xs" />
+        <label className='text-[12px] font-bold mb-2'>Minimum Order</label>
         <input placeholder={minimumOrder} type="number"  name='order' className=" mb-4 input input-bordered w-full max-w-xs" />
-        <button  className="btn btn-outline btn-success mt-4">Order Now</button>
+        <button className="btn btn-outline btn-success mt-4">Order Now</button>
       </form>
   </div>
 </div>

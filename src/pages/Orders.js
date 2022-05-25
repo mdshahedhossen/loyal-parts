@@ -51,7 +51,8 @@ const Orders = () => {
         fetch('http://localhost:5000/order',{
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
           },
           body: JSON.stringify(order)
 
@@ -62,7 +63,6 @@ const Orders = () => {
             toast('Order Pleaced')
                e.target.reset()
                setTotalPrice(null)
-               
           }
           else{
             toast.error('something has worng plase try again')

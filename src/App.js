@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Orders from "./pages/Orders";
 import OurBrand from "./pages/Home/OurBrand";
+import RequireAuth from "./pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -28,7 +29,9 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/brand" element={<OurBrand></OurBrand>}></Route>
-        <Route path="/parts/:id" element={<Orders></Orders>}></Route>
+        <Route path="/parts/:id" element={<RequireAuth>
+          <Orders></Orders>
+        </RequireAuth>}></Route>
       </Routes>
       <ToastContainer></ToastContainer>
     </div>

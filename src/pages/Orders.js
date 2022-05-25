@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../firebase.init';
+import {toast } from 'react-toastify';
 
 const Orders = () => {
     const {id}=useParams();
     const [user]=useAuthState(auth)
     const [partsDetails, setPartsDetails] = useState({});
-    // const [orderQuantity,setOrderQuantity]=useState(null)
+    const [orderQuantity,setOrderQuantity]=useState(null)
+    const [totalPrice,setTotalPrice]=useState(null)
+    const [error,setError]=useState('')
+
     const {_id,img,name,description,minimumOrder,quantity,price,supplier}=partsDetails
     useEffect(()=>{
         const url=`http://localhost:5000/parts/${id}`
@@ -16,20 +20,57 @@ const Orders = () => {
         .then(data=>setPartsDetails(data))
     },[id])
 
+    const handleminOrder = e=>{
+      console.log(price)
+      const minQuantity = e.target.value;
+      if(minQuantity>=minimumOrder && minQuantity<=quantity){
+          setOrderQuantity(minQuantity);
+          const totalAmount = minQuantity*price;
+          setTotalPrice(totalAmount)
+          setError('')
+      }else{
+          setError('Please add minimum or available quantity')
+      }
+  }
     const handleOrder=e=>{
         e.preventDefault()
         const address = e.target.address.value;
         const phone = e.target.phone.value;
+
         const order = {
-            userEmail: user.email,
+            email: user.email,
             productName: name,
-            minimumOrder: minimumOrder,
-            price: price,
+            orderQuantity: orderQuantity,
+            totalAmount: totalPrice,
             supplier:supplier,
-            address: address,
-            phone: phone,
+            address,
+            phone,
             img: img
         }
+        console.log(order)
+        fetch('http://localhost:5000/order',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(order)
+
+        })
+        .then(res=>res.json())
+        .then(data =>{
+          if(data.success){
+            toast('Order Pleaced')
+               e.target.reset()
+               setTotalPrice(null)
+               
+          }
+          else{
+            toast.error('something has worng plase try again')
+          }
+
+        });
+
+
     }
 
     return (
@@ -60,13 +101,18 @@ const Orders = () => {
       <h2 className='text-center font-bold text-2xl mb-12'>Purchase Now</h2>
       <input type="text"  name='name' placeholder="Name" className="mb-4  input input-bordered w-full max-w-xs" value={user?.displayName ||''} readOnly/>
         <input type="email"  name='emial' placeholder="Email" className="mb-4  input input-bordered w-full max-w-xs" value={user?.email ||''} readOnly />
-        <input type="text"  name='address' placeholder="Your Address" className=" mb-4 input input-bordered w-full max-w-xs" />
-        <input type="number"  name='phone' placeholder="Phone" className=" mb-4 input input-bordered w-full max-w-xs" />
+        <input type="text"  name='address' placeholder="Your Address" className=" mb-4 input input-bordered w-full max-w-xs" required />
+        <input type="number"  name='phone' placeholder="Phone" className=" mb-4 input input-bordered w-full max-w-xs" required/>
         <label className='text-[12px] font-bold mb-2'>Minimum Order</label>
-        <input placeholder={minimumOrder} type="number"  name='order' className=" mb-4 input input-bordered w-full max-w-xs" />
-        <button className="btn btn-outline btn-success mt-4">Order Now</button>
+        <label className="label">
+        {error && <span className="label-text-alt text-red-500">{error}</span>}
+        </label>
+        <input onChange={handleminOrder} placeholder={minimumOrder} type="number"  name='order' className=" mb-4 input input-bordered w-full max-w-xs" required />
+        <label className='text-[12px] font-bold mb-2'>Total Amount</label>
+        <input disabled  type="number"  name='amount' className=" mb-4 input input-bordered w-full max-w-xs" value={totalPrice} required />
+        <button disabled={error} className='btn btn-outline btn-success mt-4' >Order Now</button>
       </form>
-  </div>
+  </div> 
 </div>
         </section>
     );

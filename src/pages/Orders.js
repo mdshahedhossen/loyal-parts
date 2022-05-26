@@ -47,7 +47,7 @@ const Orders = () => {
             phone,
             img: img
         }
-        console.log(order)
+        // console.log(order)
         fetch('http://localhost:5000/order',{
           method: 'POST',
           headers: {

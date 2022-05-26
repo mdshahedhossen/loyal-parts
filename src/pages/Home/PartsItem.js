@@ -21,7 +21,7 @@ const PartsItem = ({partsItems}) => {
     <h3>Price: <span className='font-bold'>{price}</span>৳/- per unit</h3>
     </div>
     <div className="card-actions justify-end mt-5 " >
-      <button onClick={()=>navigatetoBuy(_id)} className="btn btn-outline btn-success">Buy Now</button>
+     <button onClick={()=>navigatetoBuy(_id)} className="btn btn-outline btn-success">Buy Now</button>
     </div>
   </div>
 </div>

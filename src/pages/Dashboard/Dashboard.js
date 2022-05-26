@@ -7,13 +7,13 @@ const Dashboard = () => {
   <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content mt-12">
     {/* <!-- Page content here --> */}
-    <h2 className='text-4xl font-bold text-purple-500'> Welcome Your Dashboard</h2>
+    <h2 className='text-3xl font-bold text-purple-500 text-center mb-11'> Welcome Your Dashboard</h2>
     <Outlet></Outlet>
   
   </div> 
   <div class="drawer-side">
     <label for="dashboard-sidebar" class="drawer-overlay"></label> 
-    <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+    <ul class="menu p-4 overflow-y-auto w-48 bg-base-200 text-base-content rounded-xl mr-8">
       {/* <!-- Sidebar content here --> */}
       <li><Link to='/dashboard'>My Order</Link></li>
       <li><Link to='/dashboard/addreview'>Add Review</Link></li>

@@ -48,67 +48,67 @@ const OurBrand = () => {
       <div>
         <Slider {...settings}>
           <div>
-            <div class="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
+            <div className="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
               <figure>
                 <img src={img1} alt="Shoes" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">GHX</h2>
+              <div className="card-body">
+                <h2 className="card-title">GHX</h2>
                 <p>They are 5 years business partner</p>
               </div>
             </div>
           </div>
           <div>
-          <div class="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
+          <div className="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
               <figure>
                 <img src={img2} alt="Shoes" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">BMW</h2>
+              <div className="card-body">
+                <h2 className="card-title">BMW</h2>
                 <p>They are 2 years business partner</p>
               </div>
             </div>
           </div>
           <div>
-          <div class="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
+          <div className="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
               <figure>
                 <img src={img3} alt="Shoes" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">Honda</h2>
+              <div className="card-body">
+                <h2 className="card-title">Honda</h2>
                 <p>They are 6 years business partner</p>
               </div>
             </div>
           </div>
           <div>
-          <div class="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
+          <div className="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
               <figure>
                 <img src={img4} alt="Shoes" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">Tesa</h2>
+              <div className="card-body">
+                <h2 className="card-title">Tesa</h2>
                 <p>They are 1 years business partner</p>
               </div>
             </div>
           </div>
           <div>
-          <div class="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
+          <div className="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
               <figure>
                 <img src={img5} alt="Shoes" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">Tesla GSX</h2>
+              <div className="card-body">
+                <h2 className="card-title">Tesla GSX</h2>
                 <p>They are 7 years business partner</p>
               </div>
             </div>
           </div>
           <div>
-          <div class="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
+          <div className="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
               <figure>
                 <img src={img6} alt="Shoes" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">Toyta</h2>
+              <div className="card-body">
+                <h2 className="card-title">Toyta</h2>
                 <p>They are 6.5 years business partner</p>
               </div>
             </div>

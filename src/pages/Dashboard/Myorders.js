@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 const Myorders = () => {
     const[myOrder,setMyOrder]=useState([])
     const [user]=useAuthState(auth)
-    console.log(user)
+    // console.log(user)
     useEffect(()=>{
         if(user){
             fetch(`http://localhost:5000/order?email=${user.email}`)
@@ -15,8 +15,8 @@ const Myorders = () => {
     },[user])
     return (
         <div>
-            <div class="overflow-x-auto">
-  <table class="table w-full">
+            <div className="overflow-x-auto">
+  <table className="table w-full">
     {/* <!-- head --> */}
     <thead>
       <tr>
@@ -34,20 +34,24 @@ const Myorders = () => {
                 <tr>
         <th>{index+1}</th>
         <td>
-        <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
+        <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
                 <img src={user?.photoURL} alt=""/>
               </div>
             </div>
             <div>
-              <div class="font-bold">{user?.displayName}</div>
+              <div className="font-bold">{user?.displayName}</div>
             </div>
           </div>
         </td>
         <td>{mo.productName}</td>
         <td>{mo.orderQuantity}</td>
         <td>{mo.totalAmount}</td>
+        <td >
+        <button className="btn btn-ghost bg-blue-500 hover:bg-blue-600 btn-xs text-white m-2">Payment</button>
+        <button className="btn btn-ghost bg-red-500 hover:bg-red-600 btn-xs text-white">Cancel</button>
+        </td>
       </tr>
 
             )

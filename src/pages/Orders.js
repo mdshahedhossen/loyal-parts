@@ -21,7 +21,7 @@ const Orders = () => {
     },[id])
 
     const handleminOrder = e=>{
-      console.log(price)
+      // console.log(price)
       const minQuantity = e.target.value;
       if(minQuantity>=minimumOrder && minQuantity<=quantity){
           setOrderQuantity(minQuantity);
@@ -52,7 +52,6 @@ const Orders = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
           },
           body: JSON.stringify(order)
 

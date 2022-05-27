@@ -1,17 +1,10 @@
-import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { Link, useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
-import DeleteConfirmModal from './DeleteConfirmModal';
 import Loading from '../Shared/Loading';
 import DeleteProduct from './DeleteProduct';
 import MnanageProductRow from './MnanageProductRow';
 
 const ManageProducts = () => {
-    const navigate = useNavigate()
-    const [user] = useAuthState(auth);
     const [confirmModal, setConfirmModal] = useState(null);
     const { isLoading, error, data,refetch } = useQuery(['parts'], () =>
         fetch(`http://localhost:5000/parts`)

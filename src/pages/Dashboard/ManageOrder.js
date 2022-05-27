@@ -1,8 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import DeleteConfirmModal from './DeleteConfirmModal';
@@ -10,7 +9,6 @@ import ManageOrderRow from './ManageOrderRow';
 
 const ManageOrder = () => {
     const navigate = useNavigate()
-    const [user] = useAuthState(auth);
     const [confirmModal, setConfirmModal] = useState(null);
     const { isLoading, error, data,refetch } = useQuery(['manageOrders'], () =>
         fetch(`http://localhost:5000/orders`, {

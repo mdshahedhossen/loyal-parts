@@ -25,11 +25,12 @@ const Navbar = () => {
   const manuItems=<>
   <li><Link to='/home'>Home</Link></li>
   <li><Link to='/parts'>Parts</Link></li>
-  <li><Link to='/business'>Business Summary</Link></li>
-  <li><Link to='/review'>Reviews</Link></li>
-  <li><Link to='/brand'>Our Brand</Link></li>
+  {/* <li><Link to='/business'>Business Summary</Link></li> */}
+  {/* <li><Link to='/review'>Reviews</Link></li> */}
+  {/* <li><Link to='/brand'>Our Brand</Link></li> */}
   <li><Link to='/contact'>Contact Us</Link></li>
   <li><Link to='/blogs'>Blogs</Link></li>
+  <li><Link to='/protfolio'>Protfolio</Link></li>
   {
     user && <li><Link to='/dashboard'>Dashboard</Link></li>
   }

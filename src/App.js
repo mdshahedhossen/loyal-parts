@@ -26,6 +26,7 @@ import ContactUs from "./pages/Home/ContactUs";
 import ManageOrder from "./pages/Dashboard/ManageOrder";
 import ManageProducts from "./pages/Dashboard/ManageProducts";
 import AddProduct from "./pages/Dashboard/AddProduct";
+import MyPortfolio from "./pages/MyPortfolio";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/business" element={<BusinessSummary></BusinessSummary>}></Route>
         <Route path="/review" element={<Reviews></Reviews>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/protfolio" element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/brand" element={<OurBrand></OurBrand>}></Route>

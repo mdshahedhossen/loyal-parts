@@ -36,7 +36,7 @@ const Myorders = () => {
     <tbody>
         {
             myOrder.map((mo,index)=>
-                <tr>
+                <tr key={index}>
         <th>{index+1}</th>
         <td>
         <div className="flex items-center space-x-3">

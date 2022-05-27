@@ -21,6 +21,8 @@ import AddReviews from "./pages/Dashboard/AddReviews";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import Users from "./pages/Dashboard/Users";
 import RequireAdmin from "./pages/Login/RequireAdmin";
+import Blogs from "./pages/Blogs";
+import ContactUs from "./pages/Home/ContactUs";
 
 function App() {
   return (
@@ -32,9 +34,11 @@ function App() {
         <Route path="/parts" element={<Parts></Parts>}></Route>
         <Route path="/business" element={<BusinessSummary></BusinessSummary>}></Route>
         <Route path="/review" element={<Reviews></Reviews>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/brand" element={<OurBrand></OurBrand>}></Route>
+        <Route path="/contact" element={<ContactUs></ContactUs>}></Route>
         <Route path="/parts/:id" element={<RequireAuth>
           <Orders></Orders>
         </RequireAuth>}></Route>

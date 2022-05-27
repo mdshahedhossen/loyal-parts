@@ -1,26 +1,41 @@
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [userName,setUserName] = useState('')
+
+  useEffect(()=>{
+    if(user){
+
+    const name = user.displayName;
+    const myArray = name.split(' ');
+    setUserName(myArray[0])
+}
+},[user]);
 
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken');
     };
+
   const manuItems=<>
   <li><Link to='/home'>Home</Link></li>
   <li><Link to='/parts'>Parts</Link></li>
   <li><Link to='/business'>Business Summary</Link></li>
   <li><Link to='/review'>Reviews</Link></li>
   <li><Link to='/brand'>Our Brand</Link></li>
+  <li><Link to='/contact'>Contact Us</Link></li>
+  <li><Link to='/blogs'>Blogs</Link></li>
   {
     user && <li><Link to='/dashboard'>Dashboard</Link></li>
   }
-  <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+   {user &&<li className='flex items-center text-blue-600 font-bold'>{userName}</li>}
+  <li>{user ? <button className="btn btn-ghost" onClick={logout} > Sign Out</button> : <Link to="/login">Login</Link>}</li>
+ 
   </>
     return (
         <div className="navbar bg-base-100">

@@ -39,15 +39,6 @@ const MyProfile = () => {
                         <h1 className='text-2xl font-bold'>{user.displayName}
                         </h1>
                         <p className='text-neutral py-2'>Full Stack Devloper</p>
-
-                        <div className="rating">
-                            <p>Rating: </p>
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked/>
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                        </div>
                     </div>
 
                     <div className='py-5'>
@@ -64,7 +55,7 @@ const MyProfile = () => {
 
                     <div className='py-5'>
                         <h1 className='border-b border-accent font-bold'>About</h1>
-                        <p className='my-3'>Hi, This is {user.displayName} I am a knowlege seeker.I am hardworker for fullfill my dreams</p>
+                        <p className='my-3'>Hi, This is {user.displayName}. I am a knowlege seeker.I am hardworker for fullfill my dreams</p>
                         <p className='my-3'>I completed my Bsc in CSE from Daffodil International University</p> 
                     </div>
                 </div>

@@ -24,7 +24,7 @@ const Payment = () => {
     }
     const { userName, productName, orderQuantity, totalAmount} = orderInfo;
     return (
-        <div className='bg-base-200 h-screen flex justify-center items-center'>
+        <div className='bg-base-200 mb-5 h-screen flex justify-center items-center'>
 
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">

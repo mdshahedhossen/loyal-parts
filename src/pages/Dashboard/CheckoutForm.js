@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
 const CheckoutForm = ({ bokingData }) => {
-    const {userName,userEmail, productName, orderQuantity, totalAmount,brand,img,_id } = bokingData;
+    const {userName,userEmail,totalAmount,_id } = bokingData;
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState()
@@ -21,13 +21,14 @@ const CheckoutForm = ({ bokingData }) => {
             },
             body: JSON.stringify({totalAmount})
         })
-            .then(res => res.json())
+            .then(res =>res.json())
             .then(data => {
                 if (data?.clientSecret) {
                     setClientSecret(data.clientSecret)
                 }
             })
     }, [totalAmount])
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!stripe || !elements) {
@@ -41,7 +42,7 @@ const CheckoutForm = ({ bokingData }) => {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const {error} = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });

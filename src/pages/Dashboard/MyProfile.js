@@ -10,8 +10,7 @@ const MyProfile = () => {
         <div className='mb-5'>
         <Link className='btn btn-sm btn-primary mb-2' to='/editprofile'>Edit Profile</Link>
         <div className='bg-base-200'>
-            <h1 className='text-3xl border-b-4 p-3 border-accent'>My Profile <div className="badge bg-green-500">online</div>  
-            </h1>
+            <h1 className='text-3xl border-b-4 p-3 border-accent'>My Profile</h1>
             <div className='flex flex-col lg:flex-row justify-between'>
                 <div className='lg:max-w-lg '>
                     <img className='h-56 m-5' src={user.photoURL || "https://i.ibb.co/LZfyb4f/empty-300x240.jpg"} alt="" />

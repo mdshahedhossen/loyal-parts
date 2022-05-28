@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.error-container{
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    color: #343434;
+    height: 90vh;
+}
+.error-container h1{
+    font-size: 160px;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 20px;
+}

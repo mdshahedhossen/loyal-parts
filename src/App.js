@@ -28,6 +28,7 @@ import ManageProducts from "./pages/Dashboard/ManageProducts";
 import AddProduct from "./pages/Dashboard/AddProduct";
 import MyPortfolio from "./pages/MyPortfolio";
 import Payment from "./pages/Dashboard/Payment";
+import Notmatch from "./pages/Notmatch/Notmatch";
 
 function App() {
   return (
@@ -61,7 +62,7 @@ function App() {
           <Route path='manageproduct' element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
         </Route> 
-
+        <Route path="*" element={<Notmatch></Notmatch>}></Route>
       </Routes>
       <ToastContainer></ToastContainer>
     </div>

@@ -13,7 +13,7 @@ const AddReviews = () => {
       review: review,
     };
 
-    fetch("http://localhost:5000/addreview", {
+    fetch("https://ancient-citadel-17819.herokuapp.com/addreview", {
       method: "POST",
       headers: {
         "content-type": "application/json",

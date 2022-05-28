@@ -7,7 +7,7 @@ import MnanageProductRow from './MnanageProductRow';
 const ManageProducts = () => {
     const [confirmModal, setConfirmModal] = useState(null);
     const { isLoading, error, data,refetch } = useQuery(['parts'], () =>
-        fetch(`http://localhost:5000/parts`)
+        fetch(`https://ancient-citadel-17819.herokuapp.com/parts`)
             .then(res =>res.json())          
     );
     if (isLoading) {

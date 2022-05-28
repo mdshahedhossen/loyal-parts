@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const ManageOrderRow = ({ order, index, setConfirmModal,refetch }) => {
     const { email,productName,orderQuantity,supplier,totalAmount,_id } = order;
     const shipping= ()=>{
-        fetch(`http://localhost:5000/shipp/${_id}`,{
+        fetch(`https://ancient-citadel-17819.herokuapp.com/shipp/${_id}`,{
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json',

@@ -14,7 +14,7 @@ const Orders = () => {
 
     const {_id,img,name,description,minimumOrder,quantity,price,supplier}=partsDetails
     useEffect(()=>{
-        const url=`http://localhost:5000/parts/${id}`
+        const url=`https://ancient-citadel-17819.herokuapp.com/parts/${id}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setPartsDetails(data))
@@ -48,7 +48,7 @@ const Orders = () => {
             img: img
         }
         // console.log(order)
-        fetch('http://localhost:5000/order',{
+        fetch('https://ancient-citadel-17819.herokuapp.com/order',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

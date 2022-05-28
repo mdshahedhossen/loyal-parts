@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L4GGwFj0EwbmQDlNkuCdlXUZ1YW0ervTX1VL
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://ancient-citadel-17819.herokuapp.com/order/${id}`;
 
     const { data: orderInfo, isLoading } = useQuery(['payment', id], () => fetch(url, {
         method: 'GET',

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import DeleteUser from './DeleteUser';
 import UserRow from './UserRow';
 
 const Users = () => {
+    const [confirmModal, setConfirmModal] = useState(null);
     const {data:users,isLoading,refetch}=useQuery('users',()=>fetch('https://ancient-citadel-17819.herokuapp.com/user',{
         method: 'GET',
         headers:{
@@ -33,12 +35,18 @@ const Users = () => {
             user={user}
             index={index}
             refetch={refetch}
+            setConfirmModal={setConfirmModal}
             ></UserRow>)
         }
       
     </tbody>
   </table>
 </div>
+{confirmModal && <DeleteUser 
+            user={confirmModal}
+            refetch={refetch}
+            setConfirmModal={setConfirmModal}
+            ></DeleteUser>}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-const UserRow = ({user,index,refetch}) => {
+const UserRow = ({user,index,refetch,setConfirmModal}) => {
   const {email,role}=user
     const makeAdmin=()=>{
       fetch(`https://ancient-citadel-17819.herokuapp.com/user/admin/${email}`,{
@@ -27,7 +27,7 @@ const UserRow = ({user,index,refetch}) => {
         <th>{index+1}</th>
         <td>{user.email}</td>
         <td> {role!== 'admin' && <button onClick={makeAdmin} className="btn btn-ghost bg-blue-500 hover:bg-blue-600 btn-xs text-white">Make Adimin</button>}</td>
-        <td> <button className="btn btn-ghost bg-red-500 hover:bg-red-600 btn-xs text-white">Remove User</button></td>
+        <td><label onClick={() => setConfirmModal(user)}htmlFor="delete-confirm-modal" className="btn btn-ghost bg-red-500 hover:bg-red-600 btn-xs text-white">Remove</label ></td>
       </tr>
     );
 };

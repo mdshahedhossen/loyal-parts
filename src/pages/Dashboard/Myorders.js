@@ -108,7 +108,7 @@ const Myorders = () => {
                   ) : (
                     <label
                       onClick={() => handleCancelOrder(mo)}
-                      for="delete-confirm-modal"
+                     htmlFor="delete-confirm-modal"
                       className="btn btn-ghost bg-red-500 hover:bg-red-600 btn-xs text-white"
                     >
                       Cancel

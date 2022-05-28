@@ -17,7 +17,7 @@ const DeleteProduct = ({ product, refetch, setConfirmModal }) => {
                 return res.json()
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.deletedCount > 0) {
                     setConfirmModal(null)
                     refetch();

@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import DeleteConfirmModal from './DeleteConfirmModal';
@@ -58,7 +58,7 @@ const Myorders = () => {
     <tbody>
         {
             myOrder.map((mo,index)=>
-                <tr key={index}>
+                <tr key={mo._id}>
         <th>{index+1}</th>
         <td>
         <div className="flex items-center space-x-3">
@@ -76,11 +76,20 @@ const Myorders = () => {
         <td>{mo.orderQuantity}</td>
         <td>{mo.totalAmount}</td>
         <td >
-        <button className="btn btn-ghost bg-blue-500 hover:bg-blue-600 btn-xs text-white m-2">Payment</button>
+        {/* {<button className="btn btn-ghost bg-blue-500 hover:bg-blue-600 btn-xs text-white m-2">Payment</button>} */}
+        {
+                (mo.totalAmount && !mo.paid) ? <Link to={`/dashboard/payment/${mo._id}`}>
+                    <button className="btn btn-ghost bg-blue-500 hover:bg-blue-600 btn-xs text-white m-2">Payment</button>
+                </Link>
+                    : <span className="text-green-500 font-bold ">Paid</span>
+            }
         <label  onClick={() => handleCancelOrder(mo)} for="delete-confirm-modal" className="btn btn-ghost bg-red-500 hover:bg-red-600 btn-xs text-white">Cancel</label >
         {/* <button onClick={()=>handleCancelOrder(mo)} className="btn btn-ghost bg-red-500 hover:bg-red-600 btn-xs text-white">Cancel</button> */}
         </td>
         {fetchError}
+        <td>
+               {mo.transactionId ?<span className="text-green-500 "> {mo.transactionId}</span>:<span className="text-red-500 font-bold ">Null</span>}
+            </td>
       </tr>
 
             )

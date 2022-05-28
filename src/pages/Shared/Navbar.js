@@ -28,7 +28,7 @@ const Navbar = () => {
   {/* <li><Link to='/business'>Business Summary</Link></li> */}
   {/* <li><Link to='/review'>Reviews</Link></li> */}
   {/* <li><Link to='/brand'>Our Brand</Link></li> */}
-  <li><Link to='/contact'>Contact Us</Link></li>
+  {/* <li><Link to='/contact'>Contact Us</Link></li> */}
   <li><Link to='/blogs'>Blogs</Link></li>
   <li><Link to='/protfolio'>Protfolio</Link></li>
   {
